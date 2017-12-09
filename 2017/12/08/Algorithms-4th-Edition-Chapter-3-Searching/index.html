@@ -33,7 +33,7 @@
 <meta property="og:image" content="http://alexlovemath.github.io/images/3-16.png">
 <meta property="og:image" content="http://alexlovemath.github.io/images/3-17.png">
 <meta property="og:image" content="http://alexlovemath.github.io/images/3-18.png">
-<meta property="og:updated_time" content="2017-12-08T17:08:15.192Z">
+<meta property="og:updated_time" content="2017-12-09T15:24:07.355Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Algorithms, 4th Edition: Chapter 3 Searching">
 <meta name="twitter:description" content="前言查找定义：根据给定的某个值，在查找表中确定一个其关键字等于给定值的数据元素（或记录）。">
@@ -430,7 +430,7 @@
 <p>红黑树中delete操作的实现比较复杂，工业界实现的代码量大概100行左右，可以参考下STL的红黑树实现</p>
 <h2 id="5-2-红黑树的性质与结构扩张"><a href="#5-2-红黑树的性质与结构扩张" class="headerlink" title="5.2 红黑树的性质与结构扩张"></a>5.2 红黑树的性质与结构扩张</h2><p>和典型的二叉查找树相比，一棵典型的红黑树的平衡性是很好的，大小为N的红黑树的高度不超过2lgN，使得它所有操作的运行时间都是对数级别的。</p>
 <p>红黑树这种近乎完美的平衡性，在效率表现和实现复杂度上也保持相当的”平衡”，所以运用很广，使得STL中的map和set均以RB-tree为底层机制，元素的自动排序效果很不错，map和set所开放的各种操作接口实际上是调用红黑树的各种操作行为而已，对比SGI的hash_map、hash_set是以散列表hash table作为底层机制，它不具有自动排序功能。</p>
-<h2 id="6-伸展树、Treap"><a href="#6-伸展树、Treap" class="headerlink" title="6 伸展树、Treap"></a>6 伸展树、Treap</h2><h2 id="7-线段树"><a href="#7-线段树" class="headerlink" title="7 线段树"></a>7 线段树</h2><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总结下来，我们已经实现了各种各样的符号表(字典)，包括散列表。那么对于一些典型的应用程序，我们该使用符号表的哪种实现呢?　<br>3.</p>
+<h2 id="6-伸展树、Treap"><a href="#6-伸展树、Treap" class="headerlink" title="6 伸展树、Treap"></a>6 伸展树、Treap</h2><h2 id="7-线段树"><a href="#7-线段树" class="headerlink" title="7 线段树"></a>7 线段树</h2><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总结下来，我们已经实现了各种各样的符号表(字典)，包括散列表。那么对于一些典型的应用程序，我们该使用符号表的哪种实现呢?　</p>
 <ol>
 <li>和二叉查找树相比，Hash-table的优点在于代码更简单，支持常数级别的插入和查找操作；key实现是无序的，并且无需比较；散列函数的计算可能复杂而且昂贵</li>
 <li>二叉查找树相对于散列表的优点在于抽象结构更简单(无需设计散列函数)，尽管一般的二叉查找树很实用，但它还是有一些缺点，如链接使用了大量的内存空间，若内存资源宝贵的话，建议使用开地址法的散列实现</li>
