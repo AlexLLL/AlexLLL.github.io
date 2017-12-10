@@ -15,10 +15,24 @@
 <meta property="og:url" content="http://AlexloveMath.github.io/2017/12/08/Algorithms-4th-Edition-Chapter-4-Graphs/index.html">
 <meta property="og:site_name" content="Alex_Li&#39;s Blog">
 <meta property="og:description" content="前言图是由若干给定的点及连接两点的线所构成的图形。图论是一种表示 “多对多” 的关系。">
-<meta property="og:updated_time" content="2017-12-09T13:40:58.104Z">
+<meta property="og:image" content="http://alexlovemath.github.io/images/4-1.jpg">
+<meta property="og:image" content="http://alexlovemath.github.io/images/4-2.jpg">
+<meta property="og:image" content="http://alexlovemath.github.io/images/4-3.jpg">
+<meta property="og:image" content="http://alexlovemath.github.io/images/4-4.jpg">
+<meta property="og:image" content="http://alexlovemath.github.io/images/4-5.jpg">
+<meta property="og:image" content="http://alexlovemath.github.io/images/4-6.jpg">
+<meta property="og:image" content="http://alexlovemath.github.io/images/4-7.jpg">
+<meta property="og:image" content="http://alexlovemath.github.io/images/4-8.jpg">
+<meta property="og:image" content="http://alexlovemath.github.io/images/4-9.jpg">
+<meta property="og:image" content="http://alexlovemath.github.io/images/4-10.jpg">
+<meta property="og:image" content="http://alexlovemath.github.io/images/4-11.jpg">
+<meta property="og:image" content="http://alexlovemath.github.io/images/4-12.jpg">
+<meta property="og:image" content="http://alexlovemath.github.io/images/4-13.jpg">
+<meta property="og:updated_time" content="2017-12-10T16:12:34.520Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Algorithms, 4th Edition: Chapter 4 Graphs">
 <meta name="twitter:description" content="前言图是由若干给定的点及连接两点的线所构成的图形。图论是一种表示 “多对多” 的关系。">
+<meta name="twitter:image" content="http://alexlovemath.github.io/images/4-1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Alex_Li&#39;s Blog" type="application/atom+xml">
   
@@ -224,6 +238,11 @@
 <li>对于每个点，存储着一个链表，用来指向所有与该点直接相连的点</li>
 <li>对于有权图来说，链表中元素值对应着权重</li>
 </ul>
+<hr>
+<p>例如在无向无权图中：</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="/images/4-1.jpg" alt=""></h2><p>在无向有权图中：<br><img src="/images/4-2.jpg" alt=""></p>
+<h2 id="可以看出在无向图中，邻接矩阵关于对角线对称，而邻接链表总有两条对称的边"><a href="#可以看出在无向图中，邻接矩阵关于对角线对称，而邻接链表总有两条对称的边" class="headerlink" title="可以看出在无向图中，邻接矩阵关于对角线对称，而邻接链表总有两条对称的边"></a>可以看出在无向图中，邻接矩阵关于对角线对称，而邻接链表总有两条对称的边</h2><p>而在有向无权图中：<br><img src="/images/4-3.jpg" alt=""></p>
+<hr>
 <p>邻接矩阵和链表对比：<br>邻接矩阵由于没有相连的边也占有空间，因此存在浪费空间的问题，而邻接链表则比较合理地利用空间<br>邻接链表比较耗时，牺牲很大的时间来查找，因此比较耗时，而邻接矩阵法相比邻接链表法来说，时间复杂度低。</p>
 <h2 id="3-图的遍历"><a href="#3-图的遍历" class="headerlink" title="3 图的遍历"></a>3 图的遍历</h2><p>图的遍历就是要找出图中所有的点，一般有以下两种方法：</p>
 <p><strong>1. 深度优先遍历：(Depth First Search, DFS)</strong></p>
@@ -250,11 +269,12 @@
 <li>获得当前位置上，有几条路可供选择</li>
 <li>根据选择策略，选择其中一条路，并走到下个位置</li>
 </ol>
-<p>相当于在漆黑的夜里，你只能看清你站的位置和你前面的路，但你不知道每条路能够通向哪里。搜索的任务就是，给出初始位置和目标位置，要求找到一条到达目标的路径。 </p>
-<ul>
-<li>深度优先就是，从初始点出发，不断向前走，如果碰到死路了，就往回走一步，尝试另一条路，直到发现了目标位置。这种不撞南墙不回头的方法，即使成功也不一定找到一条好路，但好处是需要记住的位置比较少。</li>
-<li>广度优先就是，从初始点出发，把所有可能的路径都走一遍，如果里面没有目标位置，则尝试把所有两步能够到的位置都走一遍，看有没有目标位置；如果还不行，则尝试所有三步可以到的位置。这种方法，一定可以找到一条最短路径，但需要记忆的内容实在很多，要量力而行。</li>
-</ul>
+<blockquote>
+<p>相当于在漆黑的夜里，你只能看清你站的位置和你前面的路，但你不知道每条路能够通向哪里。</p>
+<p>搜索的任务就是，给出初始位置和目标位置，要求找到一条到达目标的路径。 </p>
+</blockquote>
+<p><strong>深度优先</strong>就是，从初始点出发，不断向前走，如果碰到死路了，就往回走一步，尝试另一条路，直到发现了目标位置。这种不撞南墙不回头的方法，即使成功也不一定找到一条好路，但好处是需要记住的位置比较少。</p>
+<p><strong>广度优先</strong>就是，从初始点出发，把所有可能的路径都走一遍，如果里面没有目标位置，则尝试把所有两步能够到的位置都走一遍，看有没有目标位置；如果还不行，则尝试所有三步可以到的位置。这种方法，一定可以找到一条最短路径，但需要记忆的内容实在很多，要量力而行。</p>
 <h2 id="4-最短路径算法-Shortest-Path-Algorithm"><a href="#4-最短路径算法-Shortest-Path-Algorithm" class="headerlink" title="4 最短路径算法 (Shortest Path Algorithm)"></a>4 最短路径算法 (Shortest Path Algorithm)</h2><p><strong>1. 无权图：</strong><br>问题：在图中找到某一个顶点到其它所有点的距离</p>
 <p>对于初始点 v 来说，某个点的 d 代表该点到初始点的距离。</p>
 <p>基本步骤：</p>
@@ -264,6 +284,7 @@
 <li>找到所有距离为 d 为 shortest 的点，查找他们的邻接链表的下一个顶点 w，如果 dw 的值为无穷大，则将 dw 设为 shortest + 1</li>
 <li>增加 shortest 的值，重复步骤 3，直到没有顶点的距离值为无穷大</li>
 </ol>
+<p><img src="/images/4-4.jpg" alt=""></p>
 <p><strong>2. 有权图：</strong><br>在有权图中，常见的最短路径算法有 Dijkstra算法，Floyd 算法</p>
 <p><strong>迪杰斯特拉 Dijkstra 算法：Dijkstra 算法适用于权值为正的的图</strong></p>
 <p>Dijkstra 算法属于单源算法，即只能求出某点到其它点最短距离，并不能得出任意两点之间的最短距离。</p>
@@ -277,8 +298,11 @@
 <li>直到所有点都被处理过一次</li>
 </ol>
 <p>例如：</p>
+<p><img src="/images/4-5.jpg" alt=""></p>
 <p>首先选取 v0 作为起始点，添加到优先队列中，将v0弹出，然后对 v0 邻接点进行判断，由于一开始所有边都为无穷大，那么 <v0, v1=""> 和 <v0, v3=""> 都更新，值为 2 和 1，按路径大小升序将v3、v1添加到优先队列。</v0,></v0,></p>
+<p><img src="/images/4-6.jpg" alt=""></p>
 <p>之后将 v3 弹出，对所有 v3 邻接点进行值的更新，并将所有邻接点按路径大小升序添加到优先队列中，若遇到值相同，则无所谓其先后顺序</p>
+<p><img src="/images/4-7.jpg" alt=""><br><img src="/images/4-8.jpg" alt=""></p>
 <p>重复这样的过程，直到所有的点都被处理过，则算法终止，这样最后可以得出从 v0 到其它 v1~v6 节点的距离。</p>
 <p>Dijkstra 算法适合于权值为正的情况下，若权值为负则不能使用，因为出现死循环。这时候我们需要计算每个顶点被处理的次数，当某个顶点已经处理过的话，就跳出该循环。</p>
 <p><strong>佛洛伊德 Floyd 算法：可以求出任意两点的最短距离</strong></p>
@@ -303,6 +327,7 @@
 <li>当图的每一条边的权值都相同时，该图的所有生成树都是最小生成树</li>
 <li>如果图的每一条边的权值都互不相同，那么最小生成树将只有一个<br>比如：</li>
 </ul>
+<p><img src="/images/4-9.jpg" alt=""></p>
 <p>生成最小生成树的算法一般有两种，分别是 Prim 算法和 Kruskal 算法</p>
 <p><strong>1. 普里姆算法 (Prim 算法):</strong></p>
 <p>算法步骤：</p>
@@ -323,9 +348,13 @@
 </ol>
 <p>时间复杂度：O( ElogV )</p>
 <p>例如：</p>
+<p><img src="/images/4-10.jpg" alt=""></p>
 <p>在对所有边进行排序之后，我们得到一个边集合，从边集合中取出最小权的边 AD</p>
+<p><img src="/images/4-11.jpg" alt=""></p>
 <p>剩下的边中寻找。我们找到了 CE。这里边的权重也是 5，依次类推我们找到了 6,7,7</p>
+<p><img src="/images/4-12.jpg" alt=""></p>
 <p>尽管现在长度为 8 的边是最小的未选择的边。但是他们已经连通了</p>
+<p><img src="/images/4-13.jpg" alt=""></p>
 <p>最后就剩下 EG 和 FG 了。当然我们选择了 EG</p>
 
       
